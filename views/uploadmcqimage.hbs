@@ -1,0 +1,88 @@
+<!-- new_question.handlebars -->
+
+<style>
+  .form-control {
+    margin: 15px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .table-wrapper {
+    margin-top: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 3px 3px 0 0;
+  }
+
+  h1 {
+    background: #7522E6;
+    color: #fff;
+    font-size: x-large;
+    padding: 16px 30px;
+    min-width: 100%;
+    margin: -20px -25px 10px;
+    border-radius: 3px 3px 0 0;
+
+  }
+</style>
+<body>
+      {{> sidebars}}
+
+       {{> navbar}}
+
+    
+</body>
+{{#if error}}
+  <p class="error">{{error}}</p>
+{{/if}}
+
+<form action="/questions" method="post" class="table-wrapper" id="add_user" enctype="multipart/form-data">
+<h1>Create a Questions</h1>
+    <select class="form-control" id="machine" name="select_subject" placeholder="Select subject" required="true">
+      {{#if select_subject}}
+      {{#each select_subject }}
+                  <option type="text" value="" disabled selected hidden>Select a Subject</option>
+
+      <option value={{this.name}} {{isSelected this._id ../question.select_subject.name}}>{{this.name}}</option>
+      {{/each}}
+      {{!-- {{else}}
+      {{#each select_subject}}
+      <option value={{this._id}}>{{this.name}}</option>
+      {{/each}} --}}
+      {{/if}}
+    </select>
+  <div class="form-group">
+    <label for="image">Question Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" required>
+  </div>
+  <div class="form-group">
+    <input type="text" id="option1" name="option1" class="form-control" placeholder='option2' required>
+  </div>
+  <div>
+
+    <input  type="text" id="option2" name="option2" class="form-control" placeholder='option2' required>
+  </div class="form-group">
+  <div>
+    <input type="text" id="option3" name="option3" class="form-control" placeholder='option2' required>
+  </div>
+  <div class="form-group">
+    <input type="text" id="option4" name="option4" class="form-control" placeholder='option2' required>
+  </div>
+    <div class="form-group">
+    <input class="form-control" id="ans" placeholder='ans' name='ans' required="true"
+      rows="5"> </input>
+  </div>
+  {{!-- <div class="form-group">
+    <label for="correctOption">Correct Option:</label>
+    <select id="correctOption" name="correctOption" required>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+      <option value="4">Option 4</option>
+    </select>
+  </div> --}}
+  <button class="btn btn-primary" type="submit">Submit</button>
+     <a href="/questionlists" class="btn btn-danger">
+        <i class="fa fa-list-alt"></i>
+        ViewAll
+    </a>
+</form>

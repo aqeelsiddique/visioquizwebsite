@@ -1,0 +1,89 @@
+<body>
+    {{> sidebars}}
+    {{> navbar}}
+</body>
+
+<h3>{{Title}}</h3>
+<style>
+    .form-control {
+        margin: 15px;
+        border-radius: none;
+        border-bottom: 1px solid #101010;
+    }
+
+    input {
+        border-radius: none;
+        border: none;
+
+    }
+
+    .table-wrapper {
+        margin: 65px 5%;
+        border-radius: 3px 3px 0 0;
+        display: flex;
+        width: fit-content;
+        height: max-content;
+    }
+
+    h1 {
+        background: #7522E6;
+        font-size: x-large;
+        color: #fff;
+        padding: 16px 30px;
+        margin: -20px -25px 10px;
+        border-radius: 3px 3px 0 0;
+
+
+    }
+
+    .signup-image img {
+        margin-left: 50px;
+        margin-top: 50px;
+        width: 400px;
+        height: auto;
+    }
+
+    .form-group {
+        padding: 15px;
+    }
+
+    .profiletext {
+        text-align: center;
+    }
+
+    .signupcon {
+        margin-left: 85px;
+    }
+</style>
+<div class="signupcon">
+    <form action="/register" method="post" id="add_user" class="table-wrapper" autocomplete="off"
+        enctype="multipart/form-data">
+
+        <div class="form-group">
+            <h1>Create Admin Acount</h1><br>
+
+            <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
+            <hr>
+            <input type="text" class="form-control" name="email" placeholder="Enter Email" required>
+            <hr>
+            <input type="text" class="form-control" name="password" placeholder="Password" required>
+            <hr>
+            <input type="text" class="form-control" name="cpassword" placeholder="Confirm Password" required><br>
+            <div>
+                <label for="image">Image:</label>
+                <input type="file" id="profile" name="profile">
+            </div><br><br>
+            <button type="submit" class="btn btn-info" onclick="showConfirmation(event)">
+                <i class="fa fa-database"></i>
+                Submit
+            </button>
+            <a href="/eventheadlists" class="btn btn-danger">
+                <i class="fa fa-list-alt"></i>
+                View All
+            </a>
+        </div>
+        <div class="signup-image">
+            <figure><img src="\images\5144305.jpg" alt="sign up image"></figure>
+        </div>
+    </form>
+</div>

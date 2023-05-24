@@ -1,0 +1,101 @@
+<style>
+	table.table td a {
+		font-weight: 400 !important;
+		/* font-weight: bold; */
+		color: #ffffff;
+		display: inline-block;
+		text-decoration: none;
+		outline: none !important;
+	}
+</style>
+
+
+
+
+<body>
+	{{> sidebars}}
+
+	{{> navbar}}
+
+
+</body>
+
+<div class="container-xl">
+	<div class="table-responsive">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2>Manage <b>SubjectName</b></h2>
+					</div>
+					<div class="col-sm-6">
+						<form method="post" action="/add_Subject">
+							<button class="btn btn-success" data-toggle="modal">
+								Add New Subject
+								<i class="material-icons">&#xE147;</i>
+							</button>
+							{{!-- <a href="/AddSub" class="btn btn-success" data-toggle="modal"><i
+									class="material-icons">&#xE147;</i> <span>Add New Subject-Name</span></a> --}}
+							<a href="/deltedata/{{this._id}}" class="btn btn-danger" data-toggle="modal"><i
+									class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+					</div>
+				</div>
+			</div>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="selectAll">
+								<label for="selectAll"></label>
+							</span>
+						</th>
+						<th>Subject-Name</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each list_subject}}
+					<tr>
+						<td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+						</td>
+						{{!-- <td> {{this._id}}</td> --}}
+						<td>{{this.name}}</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<a href="/editsubject/{{this.name}}" class="fa fa-edit"
+								style="font-size: 25px; color: rgb(80, 85, 87); margin-right: 5px;"
+								onclick="return confirm('Are you sure to update this record?');"></a>
+						</td>
+						<td>
+							<a href="/deltedata/{{_id}}" class="fa fa-trash"
+								style="font-size: 25px; color: red; margin-right: 5px;"
+					     		onclick="return confirm('Are you sure to update this record?');"></a>
+						</td>
+						
+						<td class="liststyle">
+							<a href="/filterquestion/{{this.name}}"
+								onclick="return confirm('Are you sure to view this record?');">
+								<img src="\images\view (2).png" alt="View Records"
+									style="font-size: 15px; margin-right: 5px;">
+							</a>
+						</td>
+
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

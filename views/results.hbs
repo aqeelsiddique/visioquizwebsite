@@ -1,0 +1,89 @@
+<!-- results.handlebars -->
+
+<style>
+  .container-xl {
+    margin-top: 10%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    color: #000;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+</style>
+
+<body>
+  {{> sidebars}}
+
+  {{> navbar}}
+
+
+</body>
+
+<div class="container-xl">
+
+
+
+
+
+
+  {{!-- <ul>
+    {{#each teams}}
+    <li>{{name}} - {{select_round}}</li>
+    {{this.teamname}}
+    {{this.member1}}
+    {{this.universityname}}
+
+
+    {{/each}}
+  </ul> --}}
+  <table>
+    <thead>
+      {{!-- <tr>
+        <th>Team Name</th>
+        <th>Member 1</th>
+        <th>Member 2</th>
+        <th>Member 3</th>
+        <th>University Name</th>
+      </tr> --}}
+    </thead>
+    <tbody>
+      <h1>Results</h1>
+
+      <ul>
+        {{#each results}}
+        <li>
+          <p>Round: {{round}}</p>
+          <ul>
+            {{#each teams}}
+            <li>
+              <p>University Name: {{universityname}}</p>
+              <p>Score: {{score}}</p>
+            </li>
+            {{/each}}
+          </ul>
+
+        </li>
+        {{/each}}
+      </ul>
+
+
+

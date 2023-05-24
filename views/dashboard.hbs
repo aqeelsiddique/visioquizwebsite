@@ -1,0 +1,115 @@
+
+  {{!-- {{> sidebars}} --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      {{> sidebars}}
+
+       {{> navbar}}
+
+    
+</body>
+</html>
+<div class=" text-center">
+   
+
+    <h1>{{title}}</h1>
+ 
+    {{!-- <h1>Welcome to VisioSpark Dashboard</h1><br><br> --}}
+    <br><br>
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card mini-stat cart">
+                        <div class="card-body mini-stat-img">
+                            <div class="mini-stat-icon">
+                                <i class="fa fa-users" style="font-size:48px;color:white"></i>
+                                {{!-- <i class="mdi mdi-cube-outline float-right"></i> --}}
+                            </div><br>
+                            <div class="text-white">
+                                <h6 class="text-uppercase mb-3">Total Teams</h6>
+                                <h4 class="mb-4">{{data.team_count}}</h4>
+                                {{!-- <span class="badge badge-info"> +11% </span> <span class="ml-2">From previous
+                                    period</span> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card mini-stat cart">
+                        <div class="card-body mini-stat-img">
+                            <div class="mini-stat-icon">
+                                <i class="fa fa-book" style="font-size:48px;color: white"></i>
+
+                                {{!-- <img src="/images/subject.png" alt=""> --}}
+
+                                {{!-- <i class="mdi mdi-buffer float-right"></i> --}}
+                            </div><br>
+                            <div class="text-white">
+                                <h6 class="text-uppercase mb-3">Total Subbjects</h6>
+                                <h4 class="mb-4">{{data.subject_count}}</h4>
+                                {{!-- <span class="badge badge-danger"> -29% </span> <span class="ml-2">From previous
+                                    period</span> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card mini-stat cart">
+                        <div class="card-body mini-stat-img">
+                            <div class="mini-stat-icon">
+                                <i class="fa fa-question-circle" style="font-size:48px;color:white"></i>
+
+                                {{!-- <i class="mdi mdi-tag-text-outline float-right"></i> --}}
+                            </div><br>
+                            <div class="text-white">
+                                <h6 class="text-uppercase mb-3">Total Questons</h6>
+                                <h4 class="mb-4">{{data.question_count}}</h4>
+                                {{!-- <span class="badge badge-warning"> 0% </span> <span class="ml-2">From previous
+                                    period</span> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card mini-stat cart">
+                        <div class="card-body mini-stat-img">
+                            <div class="mini-stat-icon">
+                                <i class="fa fa-trophy" style="font-size:48px;color:white"></i>
+
+
+                            </div><br>
+                         
+                         
+                            <div class="text-white">
+                                <h6 class="text-uppercase mb-3">{{name}}All Winners</h6>
+                                <h4 class="mb-4">5</h4>
+                             
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- container-fluid -->
+    </div>
+</div>
+</br>
+
+{{> event_headlists}}
+
+<script src="public/plugins/raphael/raphael-min.js">
+</script>

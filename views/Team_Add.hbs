@@ -1,0 +1,85 @@
+<h3>{{Title}}</h3>
+<style>
+  .form-control {
+    margin: 15px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .table-wrapper {
+    margin-top: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 3px 3px 0 0;
+  }
+
+  h1 {
+    background: #7522E6;
+    color: #fff;
+    padding: 16px 30px;
+    min-width: 100%;
+    margin: -20px -25px 10px;
+    font-size: x-large;
+
+    border-radius: 3px 3px 0 0;
+
+  }
+</style>
+
+<body>
+  {{> sidebars}}
+
+  {{> navbar}}
+
+
+</body>
+
+<form action="/addteam" method="post" id="add_user" class="table-wrapper" autocomplete="off">
+  {{!-- <input type="hidden" name="_id" value="{{._id}}"> --}}
+
+  {{!-- <div class="form-group">
+    <input type="text" class="form-control" name="fullname" placeholder="No">
+  </div> --}}
+  <div class="form-group">
+    <h1>Create a Teams</h1>
+
+    {{!-- <label for="machine">Select round</label> --}}
+
+  </div>
+  <div class="form-group">
+    {{!-- <h1>Enter Team </h1> --}}
+    <select class="form-control" id="add_user" name="select_round" placeholder="Select round" required="true">
+      {{#if select_round}}
+
+      {{#each select_round}}
+      <option type="text" value="" disabled selected hidden>Select a Round</option>
+
+      <option value={{this.roundname}} {{isSelected this._id ../round.select_round.roundname}}>{{this.roundname}}
+      </option>
+      {{/each}}
+
+      {{!-- {{#each select_round}}
+      <option value={{this._id}}>{{this.roundname}}</option>
+      {{/each}} --}}
+
+      {{/if}}
+    </select>
+    <input type="text" class="form-control" name="universityname" placeholder="Enter Unersity Name" required>
+
+
+    <input type="text" class="form-control" name="teamname" placeholder="Enter Team Name" required>
+    <input type="text" class="form-control" name="member1" placeholder="Enter Memeber Name" required>
+    <input type="text" class="form-control" name="member2" placeholder="Enter Member Name" required> 
+    <input type="text"class="form-control" name="member3" placeholder="Enter Member Name" required>
+  </div>
+
+  <button type="submit" class="btn btn-info" onclick="showConfirmation(event)">
+    <i class="fa fa-database"></i>
+    Submit
+  </button>
+  <a href="/teamlist" class="btn btn-danger">
+    <i class="fa fa-list-alt"></i>
+    ViewAll
+  </a>
+  </div>
+
+</form>

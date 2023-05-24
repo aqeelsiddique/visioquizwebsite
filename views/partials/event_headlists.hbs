@@ -1,0 +1,57 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Lists<b> EventHeads </b></h2>
+                    </div>
+                    <div class="col-sm-6">
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <span class="custom-checkbox">
+                                <input type="checkbox" id="selectAll">
+                                <label for="selectAll"></label>
+                            </span>
+                        </th>
+                        <th>images</th>
+
+                        <th></th>
+                        <th></th>
+                        <th>Name</th>
+                        <th></th>
+                        <th>Email_Adress</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each list_EventHead}}
+                    <tr>
+                        <td>
+                            <span class="custom-checkbox">
+                                <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                <label for="checkbox1"></label>
+                            </span>
+                        </td>
+                        <td> <img src="/images/{{this.image}}" alt="A cute cat" /></td>
+
+                        <td></td>
+                        <td></td>
+                        <td>{{this.name}}</td>
+                        <td> </td>
+                        <td>{{this.email}}</td>
+                        <td>
+                            <a href="#" class="btn btn-info">
+                                <ion-icon name="eye-outline"></ion-icon><span style="--i: 5">view</span>
+                            </a>
+                        </td> {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

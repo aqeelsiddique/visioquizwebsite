@@ -1,0 +1,132 @@
+{{!-- <h1>{{title}}</h1> --}}
+<style>
+  .form-control {
+    margin: 15px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .table-wrapper {
+    margin-top: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 3px 3px 0 0;
+  }
+
+  h1 {
+    background: #7522E6;
+    color: #fff;
+    padding: 16px 30px;
+    min-width: 100%;
+    margin: -20px -25px 10px;
+    border-radius: 3px 3px 0 0;
+            font-size: x-large;
+
+
+  }
+  .form-grouxp{
+    text-align: end;
+   }
+</style>
+<body>
+      {{> sidebars}}
+
+       {{> navbar}}
+
+    
+</body>
+<form method="POST" action=""  id="add_user" class="table-wrapper">
+  {{!-- <div class="form-group">
+    <label for="name">Name: </label>
+    <input class="form-control" id="name" type="text" placeholder="Name of process" name="name" required="true"
+      value="{{process.name}}">
+  </div> --}}
+  
+  <div class="form-group">
+    <h1>Create a Questions</h1>
+     <div class="form-grouxp">
+    <a href="/imageques" class="btn btn-primary" class="imagetypemcq">Image</a>
+  </div>
+    <select class="form-control" id="machine" name="select_subject" placeholder="Select subject" required="true">
+      {{#if select_subject}}
+      {{#each select_subject }}
+                  <option type="text" value="" disabled selected hidden>Select a Subject</option>
+
+      <option value={{this.name}} {{isSelected this._id ../question.select_subject.name}}>{{this.name}}</option>
+      {{/each}}
+      {{!-- {{else}}
+      {{#each select_subject}}
+      <option value={{this._id}}>{{this.name}}</option>
+      {{/each}} --}}
+      {{/if}}
+    </select>
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="question" placeholder='question' name='ques' required="true"
+      rows="5">{{process.ques}}</input>
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="option1" placeholder='option1' name='option1' required="true"
+      rows="5">{{process.option1}}</input>
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="option2" placeholder='option2' name='option2' required="true"
+      rows="5">{{process.option2}}</input>
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="option3" placeholder='option3' name='option3' required="true"
+      rows="5">{{process.option3}}</input>
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="option4" placeholder='option4' name='option4' required="true"
+      rows="5">{{process.option4}}</input>
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="option2" placeholder='ans' name='ans' required="true"
+      rows="5">{{process.ans}}</input>
+  </div>
+  <button class="btn btn-primary" type="submit" onclick="showConfirmation(event)">Submit</button>
+  
+    <a href="/questionlists" class="btn btn-danger">
+        <i class="fa fa-list-alt"></i>
+        ViewAll
+    </a>
+</form>
+
+{{#if errors}}
+<label>Errors:</label>
+<ul>
+  {{#each errors}}
+  <li>{{this.msg}}</li>
+  {{/each}}
+</ul>
+{{/if}}
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="errorText"> Question are already exists</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Script to show error modal -->
+<script>
+  {{#if error}}
+    $("#errorModal").modal("show");
+                // $("#errorModal").modal("show");
+
+  {{/if}}
+</script>

@@ -1,0 +1,49 @@
+<style>
+  .form-control {
+    margin: 15px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .table-wrapper {
+    margin-top: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 3px 3px 0 0;
+    width: 10px;
+  }
+
+  h1 {
+    background: #7522E6;
+    color: #fff;
+    padding: 16px 30px;
+    min-width: 100%;
+    margin: -20px -25px 10px;
+    font-size: x-large;
+
+    border-radius: 3px 3px 0 0;
+
+  }
+</style>
+
+<body>
+  {{> sidebars}}
+
+  {{> navbar}}
+
+
+</body>
+<form action="/Addround" method="post" id="add_user" class="table-wrapper" autocomplete="off">
+  <div class="form-group">
+    <h1>Create A Round</h1>
+    <input type="text" class="form-control" name="roundname" placeholder="Enter Round" required>
+  </div>
+  <button type="submit" class="btn btn-info" onclick="showConfirmation(event)">
+    <i class="fa fa-database"></i>
+    Submit
+  </button>
+  <a href="/list_rounds" class="btn btn-danger">
+    <i class="fa fa-list-alt"></i>
+    ViewAll
+  </a>
+  </div>
+</form>

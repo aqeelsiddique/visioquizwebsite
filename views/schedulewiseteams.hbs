@@ -1,0 +1,101 @@
+<style>
+  .container-xl {
+    margin-top: 10%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    color: #000;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+</style>
+
+<body>
+  {{> sidebars}}
+
+  {{> navbar}}
+
+
+</body>
+
+<div class="container-xl">
+
+
+
+
+
+
+  {{!-- <ul>
+    {{#each teams}}
+    <li>{{name}} - {{select_round}}</li>
+    {{this.teamname}}
+    {{this.member1}}
+    {{this.universityname}}
+
+
+    {{/each}}
+  </ul> --}}
+  <table>
+    <thead>
+      {{!-- <tr>
+        <th>Team Name</th>
+        <th>Member 1</th>
+        <th>Member 2</th>
+        <th>Member 3</th>
+        <th>University Name</th>
+      </tr> --}}
+    </thead>
+    <tbody>
+      {{#each teamsByRound}}
+      <h3>{{this.round}}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Team Name</th>
+            <th>Member 1</th>
+            <th>Member 2</th>
+            <th>Member 3</th>
+            <th>University Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this.teams}}
+          <tr>
+            <td>{{this.teamname}}</td>
+            <td>{{this.member1}}</td>
+            <td>{{this.member2}}</td>
+            <td>{{this.member3}}</td>
+            <td>{{this.universityname}}</td>
+
+
+
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{/each}}
+
+    </tbody>
+  </table>
+
+
+</div>
+</div>
